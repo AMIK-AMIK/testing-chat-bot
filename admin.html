@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>AMIK Admin Panel</title>
+	<link rel="stylesheet" href="admin.css">
+	<!-- Firebase SDK -->
+	<script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-app-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-auth-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-firestore-compat.js"></script>
+</head>
+<body>
+	<div class="admin-container">
+		<header>
+			<h1 style="text-align: center; width: 100%;">AMIK Admin Panel</h1>
+			<div class="admin-info" style="display: flex; justify-content: center; align-items: center;">
+				<span id="admin-email"></span>
+				<button id="logout-btn">Logout</button>
+			</div>
+		</header>
+		
+		<main style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+			<div class="stats-container" style="width: 100%; display: flex; justify-content: center;">
+				<div class="stat-card" style="text-align: center;">
+					<h3>Total Users</h3>
+					<p id="total-users">0</p>
+				</div>
+				<div class="stat-card" style="text-align: center;">
+					<h3>Total Chats</h3>
+					<p id="total-chats">0</p>
+				</div>
+				<div class="stat-card" style="text-align: center;">
+					<h3>Today's Active Users</h3>
+					<p id="active-users">0</p>
+				</div>
+			</div>
+
+			<div class="users-container" style="width: 100%; text-align: center;">
+				<h2>User Activity</h2>
+				<div class="search-bar" style="display: flex; justify-content: center;">
+					<input type="text" id="search-users" placeholder="Search users...">
+					<select id="filter-type">
+						<option value="all">All Time</option>
+						<option value="today">Today</option>
+						<option value="week">This Week</option>
+						<option value="month">This Month</option>
+					</select>
+				</div>
+				<div class="users-table" style="display: flex; justify-content: center;">
+					<table style="margin: 0 auto;">
+						<thead>
+							<tr>
+								<th>User</th>
+								<th>Last Active</th>
+								<th>Total Chats</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tbody id="users-list">
+							<!-- User data will be populated here -->
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<div class="chat-logs" style="width: 100%; text-align: center;">
+				<h2>Chat Logs</h2>
+				<div id="chat-container" style="margin: 0 auto;">
+					<!-- Chat logs will be populated here -->
+				</div>
+			</div>
+		</main>
+	</div>
+	<script src="admin.js"></script>
+</body>
+</html>
